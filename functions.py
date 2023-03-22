@@ -16,13 +16,23 @@ def read_data(nombreFichero):
             if(j==0):
                 diccionarioAux={}
 
-            
+        
             diccionario["dato"+str(j)]= diccionarioAux
             diccionarioAux = {}
             j+=1
+        coincidencia = []
         for dato in diccionario:
-
-    print(diccionario)
+            for dato2 in diccionario[dato]:
+                valor = diccionario[dato][dato2]
+                if(valor == ""):
+                    if(dato not in coincidencia):
+                        coincidencia.append(dato)
+        
+        for dato in coincidencia:
+            del diccionario[dato]
+        
+        del diccionario["dato0"]
+        print(diccionario)
 def __main__():
     read_data('winequality.csv')
 
