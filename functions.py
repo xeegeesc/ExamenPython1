@@ -1,4 +1,5 @@
 import csv
+import math
 
 def read_data(nombreFichero):
     diccionario = {}
@@ -58,17 +59,22 @@ def reduce(diccionario, atributo):
     listaValores = []
 
     for dato in diccionario:
-        listaValores.append(diccionario[dato][atributo])
+        if(atributo not in diccionario[dato]):
+            raise ValueError("Ha ocurrido la excepción: 'El atributo no existe en el dato' en la función 'reduce'")
+
+        else:
+            listaValores.append(diccionario[dato][atributo])
+
     return listaValores
 
-def __main__():
-    diccioRes = read_data('winequality.csv')
-    diccWhite, diccRed = split(diccioRes)
+def shilouete(lista1, lista2):
 
-    listaValoresWhite = reduce(diccWhite, "alcohol")
-    listaValoresRed = reduce(diccRed, "alcohol")
+    i = 0
+    ai = 0
+    aiAux = []
+    for valor in lista1:
 
-    
+        aiAux.append( math.sqrt(math.pow(abs(valor-lista1[i+1]))))
 
-if __name__ == '__main__':
-    __main__()
+        i+=1
+
