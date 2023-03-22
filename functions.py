@@ -65,16 +65,37 @@ def reduce(diccionario, atributo):
         else:
             listaValores.append(diccionario[dato][atributo])
 
+    #print(listaValores)
     return listaValores
 
 def shilouete(lista1, lista2):
 
     i = 0
-    ai = 0
+    ai = []
     aiAux = []
-    for valor in lista1:
 
-        aiAux.append( math.sqrt(math.pow(abs(valor-lista1[i+1]))))
+    bi= []
+    biAux = []
+
+    si = []
+    for valor in lista1:
+        for valor2 in lista1:
+            if(valor != valor2):
+                aiAux.append(math.sqrt(math.pow(abs(float(valor)-float(valor2)),2)))
+        ai.append(sum(aiAux)/len(aiAux))
+        aiAux = []
+    
+    for valor in lista1:
+        for valor2 in lista2:
+            biAux.append(math.sqrt(math.pow(abs(float(valor)-float(valor2)),2)))
+        bi.append(sum(biAux)/len(biAux))
+        biAux = []
+    
+    i = 0
+    for medias in ai:
+
+        si.append((bi[i]-ai[i])/(max(ai[i],bi[i])))
 
         i+=1
-
+    print (si)
+    return si

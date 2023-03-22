@@ -7,7 +7,7 @@ def __main__():
     listaValoresWhite = f.reduce(diccWhite, "alcohol")
     listaValoresRed = f.reduce(diccRed, "alcohol")
 
-    
+    medias = f.shilouete(listaValoresWhite, listaValoresRed)
 
 if __name__ == '__main__':
     __main__()
