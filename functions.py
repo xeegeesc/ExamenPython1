@@ -9,7 +9,7 @@ def read_data(nombreFichero):
         for row in reader:
             i=0
             for dato in row:
-                diccionario["dato"+j]={indices[i]+":"+dato}
+                diccionario["dato"+]={indices[i]+":"+dato}
                 i+=1
             j+=1
 
