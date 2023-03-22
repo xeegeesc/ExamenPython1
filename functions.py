@@ -2,6 +2,7 @@ import csv
 
 def read_data(nombreFichero):
     diccionario = {}
+    diccionarioAux = {}
     indices = ["type","fixed" "acidity","volatile" "acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","quality"]
     with open(nombreFichero, 'r') as file:
         reader = csv.reader(file)
@@ -9,9 +10,17 @@ def read_data(nombreFichero):
         for row in reader:
             i=0
             for dato in row:
-                diccionario["dato"+]={indices[i]+":"+dato}
+                diccionarioAux[indices[i]] =dato
                 i+=1
+
+            if(j==0):
+                diccionarioAux={}
+
+            
+            diccionario["dato"+str(j)]= diccionarioAux
+            diccionarioAux = {}
             j+=1
+        for dato in diccionario:
 
     print(diccionario)
 def __main__():
