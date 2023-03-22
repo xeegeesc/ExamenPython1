@@ -32,9 +32,43 @@ def read_data(nombreFichero):
             del diccionario[dato]
         
         del diccionario["dato0"]
-        print(diccionario)
+
+        if(len(diccionario)<10):
+            raise ValueError("Ha ocurrido la excepción: 'El diccionario tiene menos de 10 elementos' en la función 'read_data'")
+        else:
+            #print(diccionario)
+            return diccionario
+        
+        
+def split(diccionario):
+    diccionarioRed = {}
+    diccionarioWhite = {}
+
+    for dato in diccionario:
+        if (diccionario[dato]["type"] == "white"):
+            del diccionario[dato]["type"]
+            diccionarioWhite[dato]=diccionario[dato]
+        else:
+            del diccionario[dato]["type"]
+            diccionarioRed[dato]=diccionario[dato]
+    
+    return (diccionarioWhite, diccionarioRed)
+
+def reduce(diccionario, atributo):
+    listaValores = []
+
+    for dato in diccionario:
+        listaValores.append(diccionario[dato][atributo])
+    return listaValores
+
 def __main__():
-    read_data('winequality.csv')
+    diccioRes = read_data('winequality.csv')
+    diccWhite, diccRed = split(diccioRes)
+
+    listaValoresWhite = reduce(diccWhite, "alcohol")
+    listaValoresRed = reduce(diccRed, "alcohol")
+
+    
 
 if __name__ == '__main__':
     __main__()
