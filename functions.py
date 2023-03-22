@@ -78,6 +78,8 @@ def shilouete(lista1, lista2):
     biAux = []
 
     si = []
+
+    shiloRes = 0
     for valor in lista1:
         for valor2 in lista1:
             if(valor != valor2):
@@ -97,5 +99,7 @@ def shilouete(lista1, lista2):
         si.append((bi[i]-ai[i])/(max(ai[i],bi[i])))
 
         i+=1
-    print (si)
-    return si
+    
+    shiloRes = sum(si)/len(si)
+    print (shiloRes)
+    return shiloRes
